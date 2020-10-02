@@ -9,10 +9,11 @@ class Word
     @id = id || @@total_rows += 1
   end
 
+  # Read word list:
   def self.all
     @@words.values
   end
-    #    @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
+    #    @@words.values     # [{id:1, name:"lightning"}]   @@words.values[0].name
 
   def ==(comparison_word) 
     self.name() == comparison_word.name()
@@ -21,43 +22,27 @@ class Word
   def save
     @@words[self.id] = Word.new(self.name, self.id)
   end
+
+#  For testing
+  def self.clear
+    @@words = {}
+    @@total_rows = 0
+  end
+
+  def update(name)
+    @name = name
+  end
+
+  def self.find(id)
+    @@words[id]
+  end
+
 end
 
 
-# class Stage
-#   attr_reader :name, :id
 
-#   @@stages = {}
-#   @@total_rows = 0
 
-#   def initialize(name, id)
-#     @name = name
-#     @id = id || @@total_rows += 1
-#   end
 
-#   # For Testing
-#   def self.clear
-#     @@stages = {}
-#     @@total_rows = 0
-#   end
-
-#    # Read Stages
-#   def self.all
-#     @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
-#   end
-
-#   def self.find(id)
-#     @@stages[id]
-#   end
-
-#   # Create Stage
-#   def ==(other_stage) 
-#     self.name() == other_stage.name()
-#   end 
-  
-#   def save
-#     @@stages[self.id] = Stage.new(self.name, self.id)
-#   end
   
 #   # Delete Stage
 #   def delete
