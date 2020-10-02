@@ -1,4 +1,3 @@
-# For Sinatra routing. Run with ```ruby app.rb```
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')

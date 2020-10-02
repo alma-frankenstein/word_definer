@@ -65,24 +65,3 @@ describe('#Word') do
   end
 
 end
-
-
-#   before(:each) do
-#     Stage.clear()
-#     Artist.clear()
-#   end
-
-
-#   describe('#artists') do
-#     it("returns a stage's artists") do
-#       stage = Stage.new("Lightning Stage", nil)
-#       stage.save()
-#       artist = Artist.new("Naima", stage.id, nil)
-#       artist.save()
-#       artist2 = Artist.new("Cousin Mary", stage.id, nil)
-#       artist2.save()
-#       expect(stage.artists).to(eq([artist, artist2]))
-#     end
-#   end
-
-# end

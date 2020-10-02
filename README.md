@@ -30,6 +30,10 @@ Install Bundler with ```gem install bundler```
 
 Each time the Gemfile is changed, run ```bundle install```
 
+## View With Heroku
+
+To try out this app without cloning it, check it out on [Heroku](https://evening-fjord-34014.herokuapp.com/words)
+
 ## Technologies Used
 
 * Ruby
