@@ -24,4 +24,14 @@ describe '#Word' do
     end
   end
 
+  describe('form can add a new word', {:type => :feature}) do
+    it('creates a new word on the /words page') do
+      visit('/words')
+      click_on('Add a new word')
+      fill_in('word_name', :with => 'cupcake')
+      click_on('Add a new word')
+      expect(page).to have_content('cupcake') 
+    end
+  end
+
 end
