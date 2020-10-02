@@ -15,4 +15,13 @@ describe '#Word' do
       expect(page).to have_content('List')
     end
   end
+
+  describe('path to list and add words', {:type => :feature}) do
+    it('adds a new word') do
+      visit('/words')
+      click_on('Add a new word')
+      expect(page).to have_content("Add a new word") 
+    end
+  end
+
 end
