@@ -6,8 +6,8 @@ require('pry')
 describe '#Defin' do
 
   before(:each) do
-    # Word.clear()
-    # Defin.clear()
+    Word.clear()
+    Defin.clear()
     @word = Word.new("linden", nil)
     @word.save()
   end
@@ -38,6 +38,14 @@ describe '#Defin' do
       defin2.save()
       Defin.clear()
       expect(Defin.all).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it("saves a definition to a word") do
+      defin1 = Defin.new("a northern mammal", @word.id, nil)
+      defin1.save()
+      expect(Defin.all).to(eq([defin1]))
     end
   end
 
