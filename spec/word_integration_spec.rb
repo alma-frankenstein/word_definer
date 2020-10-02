@@ -34,4 +34,16 @@ describe '#Word' do
     end
   end
 
+  describe('allow user to edit a word', {:type => :feature}) do
+    it('creates a new view when edit word is clicked on') do
+      visit('/words')
+      click_on('Add a new word')
+      fill_in('word_name', :with => 'sky')
+      click_on('Add a new word')
+      click_on('sky')
+      click_on('Edit word')
+      expect(page).to have_content('Change')
+    end
+  end
+
 end
