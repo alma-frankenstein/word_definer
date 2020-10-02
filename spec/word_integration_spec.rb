@@ -46,4 +46,17 @@ describe '#Word' do
     end
   end
 
+  describe('deletes a word', {:type => :feature}) do
+    it('deletes a word') do
+      visit('/words')
+      click_on('Add a new word')
+      fill_in('word_name', :with => 'sleep')
+      click_on('Add a new word')
+      click_on('sleep')
+      click_on('Edit word')
+      click_on('Delete word')
+      expect(page).to have_content('There aren\'t any')
+    end
+  end
+
 end
