@@ -38,3 +38,41 @@ end
 #   def self.all
 #     @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
 #   end
+
+#   def self.find(id)
+#     @@stages[id]
+#   end
+
+#   # Create Stage
+#   def ==(other_stage) 
+#     self.name() == other_stage.name()
+#   end 
+  
+#   def save
+#     @@stages[self.id] = Stage.new(self.name, self.id)
+#   end
+  
+#   # Delete Stage
+#   def delete
+#     @@stages.delete(self.id)
+#   end
+ 
+#   # Update Stage
+#   def update(name)
+#     @name = name
+#   end
+  
+#   # Find all artists performing on a stage
+#   def artists
+#     Artist.find_by_stage(self.id)
+#   end
+# end
+  
+
+  
+
+  # @@stages = {1: {name: stage1, id:1}, 2: {name: stage2, id: 2}}
+  # Access stages object
+  # Stage.all =[{name: stage1, id:1}, {name: stage2, id: 2}]    for testing
+  # @@stages[1].name   getting name of specific stage by key/id
+  #Access the albums obj at the name key
