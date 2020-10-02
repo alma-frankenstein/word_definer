@@ -8,7 +8,7 @@ This app allows users to enter a word and one or more definitions for it. The us
 
 ## Specs
 
-* Allows users to add a word to a list of word
+* Allows users to add a word to a list of words
 
 * Allow users to delete or edit a word from the list of words
 
@@ -30,20 +30,12 @@ Install Bundler with ```gem install bundler```
 
 Each time the Gemfile is changed, run ```bundle install```
 
-
-To run a script in the terminal:
-
-Enter ```chmod +x ruby_script.rb``` to get executable permission
-
-Enter ```ruby_script.rb``` to run the script
-
-
-
 ## Technologies Used
 
 * Ruby
 * rspec
 * Sinatra
+* Capybara
 
 ## Contact Details
 
