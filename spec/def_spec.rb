@@ -49,4 +49,13 @@ describe '#Defin' do
     end
   end
 
+  describe('#update') do
+    it("updates a definition") do
+      defin1 = Defin.new("a northern mammal", @word.id, nil)
+      defin1.save()
+      defin1.update("a southern fish", @word.id)
+      expect(defin1.name).to(eq("a southern fish"))
+    end
+  end
+
 end
