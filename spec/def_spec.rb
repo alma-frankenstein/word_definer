@@ -1,22 +1,22 @@
 require('rspec')
-require('def')
+require('defin')
 require('word')
 require('pry')
 
-describe '#Def' do
+describe '#Defin' do
 
   before(:each) do
     # Word.clear()
-    # Def.clear()
+    # Defin.clear()
     @word = Word.new("linden", nil)
     @word.save()
   end
 
   describe('#==') do
     it("is checks that definitions are the same if they have the same name") do
-      def1 = Def.new("a type of tree", @word.id, nil)
-      def2 = Def.new("a type of tree", @word.id, nil)
-      expect(def1).to(eq(def2))
+      defin1 = Defin.new("a type of tree", @word.id, nil)
+      defin2 = Defin.new("a type of tree", @word.id, nil)
+      expect(defin1).to(eq(defin2))
     end
   end
 
