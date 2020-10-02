@@ -2,7 +2,7 @@ class Defin
   attr_reader :id
   attr_accessor :name, :word_id
 
-  @@definss = {}
+  @@defins = {}
   @@total_rows = 0
 
   def initialize(name, word_id, id)
@@ -39,6 +39,20 @@ class Defin
 
   def self.clear
     @@defins = {}
+  end
+
+  def self.find_by_word(word_id)
+    defins = []
+    @@defins.values.each do |defin|
+      if defin.word_id == word_id
+        defins.push(defin)
+      end
+    end
+    defins
+  end
+
+  def word
+    Word.find(self.word_id)
   end
 
 end

@@ -41,6 +41,10 @@ class Word
     @@words.delete(self.id)
   end
 
+  def defins
+    Defin.find_by_word(self.id)
+  end
+
 
 end
 
