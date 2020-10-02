@@ -14,6 +14,13 @@ class Word
   end
     #    @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
 
+  def ==(comparison_word) 
+    self.name() == comparison_word.name()
+  end 
+
+  def save
+    @@words[self.id] = Word.new(self.name, self.id)
+  end
 end
 
 
