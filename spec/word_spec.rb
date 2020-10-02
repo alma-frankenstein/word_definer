@@ -53,6 +53,17 @@ describe('#Word') do
     end
   end
 
+  describe('.delete') do
+    it("deletes a word from the word list") do
+      cup = Word.new("cup", nil )
+      cup.save()
+      grass = Word.new("grass", nil)
+      grass.save()
+      cup.delete()
+      expect(Word.all).to(eq([grass]))
+    end
+  end
+
 end
 
 
@@ -60,22 +71,6 @@ end
 #     Stage.clear()
 #     Artist.clear()
 #   end
-
-
-
-#   describe('.delete') do
-#     it("deletes a stage by id") do
-#       lightning_stage = Stage.new("Lightning Stage", nil )
-#       lightning_stage.save()
-#       fairyland_stage = Stage.new("Fairyland Stage", nil)
-#       fairyland_stage.save()
-#       lightning_stage.delete()
-#       expect(Stage.all).to(eq([fairyland_stage]))
-#     end
-#   end
-
-
-
 
 
 #   describe('#artists') do

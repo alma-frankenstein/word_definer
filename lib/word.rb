@@ -37,6 +37,10 @@ class Word
     @@words[id]
   end
 
+  def delete
+    @@words.delete(self.id)
+  end
+
 
 end
 
@@ -45,10 +49,7 @@ end
 
 
   
-#   # Delete Stage
-#   def delete
-#     @@stages.delete(self.id)
-#   end
+
  
   
 #   # Find all artists performing on a stage
