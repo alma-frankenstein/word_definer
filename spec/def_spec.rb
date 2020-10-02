@@ -58,4 +58,15 @@ describe '#Defin' do
     end
   end
 
+  describe('#delete') do
+    it("deletes a definition from a word") do
+      defin1 = Defin.new("a northern mammal", @word.id, nil)
+      defin1.save()
+      defin2 = Defin.new("first dog on the moon", @word.id, nil)
+      defin2.save()
+      defin1.delete()
+      expect(Defin.all).to(eq([defin2]))
+    end
+  end
+
 end
