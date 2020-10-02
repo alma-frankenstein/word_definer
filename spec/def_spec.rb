@@ -30,4 +30,15 @@ describe '#Defin' do
     end
   end
 
+  describe('.clear') do
+    it("clears all definitions, for testing") do
+      defin1 = Defin.new("a northern mammal", @word.id, nil)
+      defin1.save()
+      defin2 = Defin.new("first dog on the moon", @word.id, nil)
+      defin2.save()
+      Defin.clear()
+      expect(Defin.all).to(eq([]))
+    end
+  end
+
 end
