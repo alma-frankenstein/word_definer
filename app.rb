@@ -2,7 +2,7 @@
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')
-require('./lib/def')
+require('./lib/defin')
 require('pry')
 also_reload('lib/**/*.rb')
 
@@ -28,55 +28,52 @@ post('/words') do
   erb(:words)
 end
 
+get('/words/:id') do  
+  @word = Word.find(params[:id].to_i)
+  erb(:word)
+end
 
-# get('/stages/:id') do   # pass an argument into the url
-#   @stage = Stage.find(params[:id].to_i)
-#   erb(:stage)
-# end
+get('/words/:id/edit') do
+  @word = Word.find(params[:id].to_i)
+  erb(:word_edit)
+end
 
-# get('/stages/:id/edit') do
-#   @stage = Stage.find(params[:id].to_i)
-#   erb(:stage_edit)
-# end
+patch('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  @word.update(params[:name])
+  @words = Word.all
+  erb(:words)
+end
 
-# patch('/stages/:id') do
-#   @stage = Stage.find(params[:id].to_i)
-#   @stage.update(params[:name])
-#   @stages = Stage.all
-#   erb(:stages)
-# end
+delete('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  @word.delete()
+  @words = Word.all
+  erb(:words)
+end
 
-# delete('/stages/:id') do
-#   @stage = Stage.find(params[:id].to_i)
-#   @stage.delete()
-#   @stages = Stage.all
-#   erb(:stages)
-# end
+get('/words/:id/defins/:defin_id') do  
+  @defin = Defin.find(params[:defin_id].to_i())
+  erb(:defin)
+end
 
-# get('/stages/:id/artists/:artist_id') do  # shows information about the artist
-#   @artist = Artist.find(params[:artist_id].to_i())
-#   erb(:artist)
-# end
+delete('/words/:id/defins/:defin_id') do
+  defin = Defin.find(params[:defin_id].to_i())
+  defin.delete
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
 
-# post('/stages/:id/artists') do  # write artist to specific stage
-#    @stage = Stage.find(params[:id].to_i())
-#    artist = Artist.new(params[:artist_name], @stage.id, nil)
-#    artist.save()
-#    erb(:stage)
-# end
+post('/words/:id/defins') do
+  @word = Word.find(params[:id].to_i())
+  defin = Defin.new(params[:defin_name], @word.id, nil)
+  defin.save()
+  erb(:word)
+end
 
-# # Edit an artist and then route back to the stage view.
-# patch('/stages/:id/artists/:artist_id') do
-#   @stage = Stage.find(params[:id].to_i())
-#   artist = Artist.find(params[:artist_id].to_i())
-#   artist.update(params[:name], @stage.id)
-#   erb(:stage)
-# end
-
-# # Delete an artist and then route back to the stage view.
-# delete('/stages/:id/artists/:artist_id') do
-#   artist = Artist.find(params[:artist_id].to_i())
-#   artist.delete
-#   @stage = Stage.find(params[:id].to_i())
-#   erb(:stage)
-# end
+patch('/words/:id/defins/:defin_id') do
+  @word = Word.find(params[:id].to_i())
+  defin = Defin.find(params[:defin_id].to_i())
+  defin.update(params[:name], @word.id)
+  erb(:word)
+end

@@ -1,10 +1,25 @@
-<h3><%= @word.name%></h3>
+<h3><%=@word.name%></h3>
+
+<h4>Add a definition:</h4>
+<form action="/words/<%= @word.id %>/defins" method="post">
+  <div class="form-group">
+    <label for="defin_name">New definition:</label>
+    <input id="defin_name" name="defin_name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Add definition</button>
+</form>
+
 <h4>Definitions:<h4>
+  <% if @word.defins %>
+    <ul>
+      <% @word.defins.each do |defin| %>
+        <li><a href="/words/<%= @word.id %>/defins/<%= defin.id %>"><%= defin.name %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There aren't any definitions listed for this word yet.</p>
+  <% end %>
 
-<%# code for listing definitons goes here %>
-
-<%# code for adding definitions goes here %>
 
 <p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 <a href="/words">Return to word list</a>
-
