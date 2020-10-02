@@ -6,7 +6,9 @@ Fun! You can add, delete, and change the words and their definitions</p>
 <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>
+      <% if word.name != ''%>
       <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+      <%end%>
     <% end %>
   </ul>
 <% else %>
