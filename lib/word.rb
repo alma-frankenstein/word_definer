@@ -9,11 +9,9 @@ class Word
     @id = id || @@total_rows += 1
   end
 
-  # Read word list:
   def self.all
     @@words.values
   end
-    #    @@words.values     # [{id:1, name:"lightning"}]   @@words.values[0].name
 
   def ==(comparison_word) 
     self.name() == comparison_word.name()
@@ -23,7 +21,6 @@ class Word
     @@words[self.id] = Word.new(self.name, self.id)
   end
 
-#  For testing
   def self.clear
     @@words = {}
     @@total_rows = 0
@@ -45,28 +42,4 @@ class Word
     Defin.find_by_word(self.id)
   end
 
-
 end
-
-
-
-
-
-  
-
- 
-  
-#   # Find all artists performing on a stage
-#   def artists
-#     Artist.find_by_stage(self.id)
-#   end
-# end
-  
-
-  
-
-  # @@stages = {1: {name: stage1, id:1}, 2: {name: stage2, id: 2}}
-  # Access stages object
-  # Stage.all =[{name: stage1, id:1}, {name: stage2, id: 2}]    for testing
-  # @@stages[1].name   getting name of specific stage by key/id
-  #Access the albums obj at the name key

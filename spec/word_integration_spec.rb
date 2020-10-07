@@ -19,27 +19,27 @@ describe '#Word' do
   describe('path to list and add words', {:type => :feature}) do
     it('adds a new word') do
       visit('/words')
-      click_on('Add a new word')
-      expect(page).to have_content("Add a new word") 
+      click_on('Add a word!')
+      expect(page).to have_content("Create another word") 
     end
   end
 
   describe('form can add a new word', {:type => :feature}) do
     it('creates a new word on the /words page') do
       visit('/words')
-      click_on('Add a new word')
+      click_on('Add a word!')
       fill_in('word_name', :with => 'cupcake')
-      click_on('Add a new word')
-      expect(page).to have_content('cupcake') 
+      click_on('submit')
+      expect(page).to have_link('cupcake') 
     end
   end
 
   describe('allow user to edit a word', {:type => :feature}) do
     it('creates a new view when edit word is clicked on') do
       visit('/words')
-      click_on('Add a new word')
+      click_on('Add a word!')
       fill_in('word_name', :with => 'sky')
-      click_on('Add a new word')
+      click_on('submit')
       click_on('sky')
       click_on('Edit word')
       expect(page).to have_content('Change')
@@ -49,9 +49,9 @@ describe '#Word' do
   describe('deletes a word', {:type => :feature}) do
     it('deletes a word') do
       visit('/words')
-      click_on('Add a new word')
+      click_on('Add a word!')
       fill_in('word_name', :with => 'sleep')
-      click_on('Add a new word')
+      click_on('submit')
       click_on('sleep')
       click_on('Edit word')
       click_on('Delete word')
